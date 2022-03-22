@@ -2,10 +2,32 @@
 /* eslint-disable require-jsdoc */
 /* eslint-disable no-unused-vars */
 
+abstract class Fighter {
+  constructor(protected name : string, protected height : number,
+    protected weight : number, protected type : string, protected attack : number,
+    protected defense : number, protected velocity : number, protected health : number) { }
+
+  abstract getName() : string;
+
+  abstract getHeight() : number;
+
+  abstract getWeight() : number;
+
+  abstract getType() : string;
+
+  abstract getAttack() : number;
+
+  abstract getDefense() : number;
+
+  abstract getVelocity() : number;
+
+  abstract getHealth() : number;
+}
+
 /**
  * Contains all atributes of the Pokemon
  */
-class Pokemon {
+class Pokemon extends Fighter {
   /**
    * Recieves the Pokemon data
    * @param name Pokemon Name
@@ -17,9 +39,11 @@ class Pokemon {
    * @param velocity Pokemon Velocity
    * @param health Pokemon Health
    */
-  constructor(private name : string, private height : number,
-    private weight : number, private type : string, private attack : number,
-    private defense : number, private velocity : number, private health : number) { }
+  constructor(protected name : string, protected height : number,
+    protected weight : number, protected type : string, protected attack : number,
+    protected defense : number, protected velocity : number, protected health : number) {
+    super(name, height, weight, type, attack, defense, velocity, health);
+  }
 
   getName() {
     return this.name;
@@ -55,7 +79,7 @@ class Pokemon {
 
   /**
    * Prints information of a Pokemon
-   * @returns Printed Pokemon Information
+   * @return Printed Pokemon Information
    */
   printPokemonData() {
     return `${this.getName()} es un pokemon de tipo ${this.getType()}, pesa ${this.getWeight()} kg y mide ${this.getHeight()} m.Tiene ${this.getAttack()} puntos de ataque, ${this.getDefense()} puntos de defensa, ${this.getVelocity()} puntos de velocidad y ${this.getHealth()} puntos de vida`;
@@ -65,7 +89,7 @@ class Pokemon {
 /**
  * Contains the atributes of a Jojo character
  */
-class Jojo {
+class Jojo extends Fighter {
   /**
    * Recieves the Jojo character data
    * @param name Jojo character name
@@ -84,12 +108,14 @@ class Jojo {
    * @param precision Stand Precision of the Stand
    * @param developmentPotencial Development Potencial of the Stand
    */
-  constructor(private name : string, private height : number,
-    private weight : number, private type : string, private attack : number,
-    private defense : number, private velocity : number, private health : number,
-    private standName : string, private specialPower : string, private range : string,
-    private destructivePower : string, private stamina : string, private precision : string,
-    private developmentPotencial : string) { }
+  constructor(protected name : string, protected height : number,
+    protected weight : number, protected type : string, protected attack : number,
+    protected defense : number, protected velocity : number, protected health : number,
+    protected standName : string, protected specialPower : string, protected range : string,
+    protected destructivePower : string, protected stamina : string, protected precision : string,
+    protected developmentPotencial : string) {
+    super(name, height, weight, type, attack, defense, velocity, health);
+  }
 
   getName() {
     return this.name;
@@ -153,7 +179,7 @@ class Jojo {
 
   /**
    * Prints information of a Jojo Character
-   * @returns Printed Jojo Character Information
+   * @return Printed Jojo Character Information
    */
   printJojoData() {
     const firstData : string = `${this.getName()} tiene un stand de tipo ${this.getType()}, ${this.getName()} pesa ${this.getWeight()} kg y mide ${this.getHeight()} m. Su stand ${this.getStandName()} tiene ${this.getAttack()} puntos de ataque, ${this.getDefense()} puntos de defensa, ${this.getVelocity()} puntos de velocidad y ${this.getName()} tiene ${this.getHealth()} vida.`;
@@ -170,8 +196,8 @@ class SaveFighter<Universe> {
 
   /**
    * Save Any Fighter data
-   * @param Fighter Any fighter 
-   * @returns Array with all fighters data
+   * @param Fighter Any fighter
+   * @return Array with all fighters data
    */
   saveFighter(...Fighter : Universe[]) {
     const fighterSave : Universe[] = [];
@@ -183,22 +209,8 @@ class SaveFighter<Universe> {
   }
 }
 
-abstract class Fighter<U1, U2> {
+class Combat<U1, U2> {
   constructor(protected firstFighter : U1, protected secondFighter : U2) { }
-
-  abstract getFirstFighter() : U1;
-
-  abstract getSecondFighter() : U2;
-
-  abstract getDamage(Fighter : U1 | U2) : number;
-
-  abstract startFight(Fighter1 : U1, Fighter2 : U2) : number;
-}
-
-class Combat<U1, U2> extends Fighter<U1, U2> {
-  constructor(protected firstFighter : U1, protected secondFighter : U2) {
-    super(firstFighter, secondFighter);
-  }
 
   getFirstFighter(): U1 {
     return this.firstFighter;
