@@ -23,4 +23,6 @@ export abstract class Fighter {
   abstract getHealth() : number;
 
   abstract getDamage(Fighter : any) : number;
+
+  abstract getGeneralDamage() : number;
 }

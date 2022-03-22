@@ -1,3 +1,4 @@
+/* eslint-disable require-jsdoc */
 /* eslint-disable max-len */
 /* eslint-disable valid-jsdoc */
 import {Fighter} from './Fighter';
@@ -56,6 +57,49 @@ export class Pokemon extends Fighter {
   }
 
   /**
+   * This method calculates the pokemon damage with his type, this function only works on the Pokemon Universe
+   * @param Fighter Second Pokemon Fighter
+   * @returns Damage of the Pokemon
+   */
+  getDamage(Fighter : Pokemon) : number {
+    const superEfective : number = 2;
+    const neutral : number = 1;
+    const notVeryEffective : number = 0.5;
+    let pokemonEffectiveness = 0;
+
+    if ( this.type == 'fuego' && Fighter.type == 'hierba' ) {
+      pokemonEffectiveness = superEfective;
+    } else if ( this.type == 'fuego' && Fighter.type == 'agua' ) {
+      pokemonEffectiveness = notVeryEffective;
+    } else if ( this.type == 'fuego' && Fighter.type == 'eléctrico' ) {
+      pokemonEffectiveness = neutral;
+    } else if ( this.type == 'agua' && Fighter.type == 'hierba' ) {
+      pokemonEffectiveness = notVeryEffective;
+    } else if ( this.type == 'agua' && Fighter.type == 'eléctrico' ) {
+      pokemonEffectiveness = notVeryEffective;
+    } else if ( this.type == 'agua' && Fighter.type == 'fuego' ) {
+      pokemonEffectiveness = superEfective;
+    } else if ( this.type == 'hierba' && Fighter.type == 'eléctrico' ) {
+      pokemonEffectiveness = neutral;
+    } else if ( this.type == 'hierba' && Fighter.type == 'fuego' ) {
+      pokemonEffectiveness = notVeryEffective;
+    } else if ( this.type == 'hierba' && Fighter.type == 'agua' ) {
+      pokemonEffectiveness = superEfective;
+    } else if ( this.type == 'eléctrico' && Fighter.type == 'agua' ) {
+      pokemonEffectiveness = superEfective;
+    }
+
+    const damage : number = ((this.attack / this.defense) * pokemonEffectiveness);
+
+    return damage;
+  }
+
+  getGeneralDamage(): number {
+    const damage = (this.attack / this.defense);
+    return damage;
+  }
+
+  /**
    * Prints information of a Pokemon
    * @return Printed Pokemon Information
    */
@@ -63,3 +107,4 @@ export class Pokemon extends Fighter {
     return `${this.getName()} es un pokemon de tipo ${this.getType()}, pesa ${this.getWeight()} kg y mide ${this.getHeight()} m.Tiene ${this.getAttack()} puntos de ataque, ${this.getDefense()} puntos de defensa, ${this.getVelocity()} puntos de velocidad y ${this.getHealth()} puntos de vida`;
   }
 }
+

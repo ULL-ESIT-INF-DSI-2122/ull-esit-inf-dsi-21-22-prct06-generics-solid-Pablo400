@@ -67,7 +67,37 @@ export class Jojo extends Fighter {
   }
 
   getDamage(Fighter: Jojo): number {
-    return 0;
+    const superEffective : number = 2;
+    const neutral : number = 1;
+    const notVeryEffective : number = 0.5;
+    let standEffectiveness = 0;
+
+    if ( this.type == 'Largo Alcance' && Fighter.type == 'Corto Alcance' ) {
+      standEffectiveness = superEffective;
+    } else if ( this.type == 'Corto Alcance' && Fighter.type == 'Largo Alcance' ) {
+      standEffectiveness = notVeryEffective;
+    } else if ( this.type == 'Humanoide' && Fighter.type == 'Artificial' ) {
+      standEffectiveness = neutral;
+    } else if ( this.type == 'Artificial' && Fighter.type == 'Humanoide' ) {
+      standEffectiveness = superEffective;
+    } else if ( this.type == 'Natural' && Fighter.type == 'Artificial' ) {
+      standEffectiveness = superEffective;
+    } else if ( this.type == 'Artificial' && Fighter.type == 'Natural' ) {
+      standEffectiveness = neutral;
+    } else if ( this.type == 'Automático' && Fighter.type == 'Control Total' ) {
+      standEffectiveness = neutral;
+    } else if ( this.type == 'Control Total' && Fighter.type == 'Automático' ) {
+      standEffectiveness = notVeryEffective;
+    }
+
+    const damage : number = ((this.attack / this.defense) * standEffectiveness);
+
+    return damage;
+  }
+
+  getGeneralDamage(): number {
+    const damage = (this.attack / this.defense);
+    return damage;
   }
 
   getStandName() {
