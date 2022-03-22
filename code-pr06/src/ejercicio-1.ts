@@ -2,7 +2,7 @@
 /* eslint-disable require-jsdoc */
 /* eslint-disable no-unused-vars */
 
-abstract class Fighter {
+export abstract class Fighter {
   constructor(protected name : string, protected height : number,
     protected weight : number, protected type : string, protected attack : number,
     protected defense : number, protected velocity : number, protected health : number) { }
@@ -27,7 +27,7 @@ abstract class Fighter {
 /**
  * Contains all atributes of the Pokemon
  */
-class Pokemon extends Fighter {
+export class Pokemon extends Fighter {
   /**
    * Recieves the Pokemon data
    * @param name Pokemon Name
@@ -89,7 +89,7 @@ class Pokemon extends Fighter {
 /**
  * Contains the atributes of a Jojo character
  */
-class Jojo extends Fighter {
+export class Jojo extends Fighter {
   /**
    * Recieves the Jojo character data
    * @param name Jojo character name
@@ -191,7 +191,7 @@ class Jojo extends Fighter {
 /**
  * Save each fighter
  */
-class SaveFighter<Universe> {
+export class SaveFighter<Universe> {
   constructor() {};
 
   /**
@@ -229,7 +229,7 @@ class Combat<U1, U2> {
   }
 }
 
-const Jotaro = new Jojo('Jotaro', 1.95, 81, 'Corto Alcance', 200, 50, 200, 100, 'Star Platinum', 'The World', 'C', 'A', 'A', 'A', 'A');
+/* const Jotaro = new Jojo('Jotaro', 1.95, 81, 'Corto Alcance', 200, 50, 200, 100, 'Star Platinum', 'The World', 'C', 'A', 'A', 'A', 'A');
 const Pikachu = new Pokemon('Pikachu', 0.4, 6, 'eléctrico', 55, 40, 90, 35);
 const Totodile = new Pokemon('Totodile', 0.6, 9.5, 'agua', 65, 64, 43, 50);
 
@@ -238,4 +238,4 @@ console.log(Pikachu.printPokemonData());
 
 const Fighters = new SaveFighter();
 
-console.log(Fighters.saveFighter(Jotaro, Pikachu, Totodile));
+console.log(Fighters.saveFighter(Jotaro, Pikachu, Totodile)); */
