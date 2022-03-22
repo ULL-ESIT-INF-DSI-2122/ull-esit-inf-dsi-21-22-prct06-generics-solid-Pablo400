@@ -1,7 +1,9 @@
 /* eslint-disable max-len */
 import 'mocha';
 import {expect} from 'chai';
-import {Jojo, Pokemon, SaveFighter} from '../src/ejercicio-1';
+import {SaveFighter} from '../src/ejercicio-1';
+import {Jojo} from '../src/Jojo';
+import {Pokemon} from '../src/Pokemon';
 
 const Jotaro = new Jojo('Jotaro', 1.95, 81, 'Corto Alcance', 200, 50, 200, 100, 'Star Platinum', 'The World', 'C', 'A', 'A', 'A', 'A');
 const Pikachu = new Pokemon('Pikachu', 0.4, 6, 'eléctrico', 55, 40, 90, 35);
