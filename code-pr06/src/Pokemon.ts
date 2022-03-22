@@ -20,7 +20,7 @@ export class Pokemon extends Fighter {
    */
   constructor(protected name : string, protected height : number,
     protected weight : number, protected type : string, protected attack : number,
-    protected defense : number, protected velocity : number, protected health : number) {
+    protected defense : number, protected velocity : number, protected health : number, protected pokemonTrainer : string) {
     super(name, height, weight, type, attack, defense, velocity, health);
   }
 
@@ -94,6 +94,14 @@ export class Pokemon extends Fighter {
     return damage;
   }
 
+  getPokemonTrainer() {
+    return this.pokemonTrainer;
+  }
+
+  /**
+   * This method calculates the pokemon damage on other Universe
+   * @returns The general damage of a Pokemon on other Universe
+   */
   getGeneralDamage(): number {
     const damage = (this.attack / this.defense);
     return damage;
@@ -104,7 +112,7 @@ export class Pokemon extends Fighter {
    * @return Printed Pokemon Information
    */
   printPokemonData() {
-    return `${this.getName()} es un pokemon de tipo ${this.getType()}, pesa ${this.getWeight()} kg y mide ${this.getHeight()} m.Tiene ${this.getAttack()} puntos de ataque, ${this.getDefense()} puntos de defensa, ${this.getVelocity()} puntos de velocidad y ${this.getHealth()} puntos de vida`;
+    return `El ${this.getName()} de ${this.pokemonTrainer} es un pokemon de tipo ${this.getType()}, pesa ${this.getWeight()} kg y mide ${this.getHeight()} m.Tiene ${this.getAttack()} puntos de ataque, ${this.getDefense()} puntos de defensa, ${this.getVelocity()} puntos de velocidad y ${this.getHealth()} puntos de vida`;
   }
 }
 

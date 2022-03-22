@@ -1,8 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Combat = void 0;
-const Jojo_1 = require("./Jojo");
-const Pokemon_1 = require("./Pokemon");
 class Combat {
     constructor(firstFighter, secondFighter) {
         this.firstFighter = firstFighter;
@@ -20,13 +18,18 @@ class Combat {
         let fighter2RemainingHealth = Fighter2.getHealth();
         let fighter1Damage = 0;
         let fighter2Damage = 0;
-        // if (typeof(Fighter1) === typeof(Fighter2)) {
-        // fighter1Damage = Fighter1.getDamage(Fighter2);
-        // fighter2Damage = Fighter2.getDamage(Fighter1);
-        // } else {
-        fighter1Damage = Fighter1.getGeneralDamage();
-        fighter2Damage = Fighter2.getGeneralDamage();
-        // }
+        if ('standName' in Fighter1 && 'standName' in Fighter2) {
+            fighter1Damage = Fighter1.getDamage(Fighter2);
+            fighter2Damage = Fighter2.getDamage(Fighter1);
+        }
+        else if ('pokemonTrainer' in Fighter1 && 'pokemonTrainer' in Fighter2) {
+            fighter1Damage = Fighter1.getDamage(Fighter2);
+            fighter2Damage = Fighter2.getDamage(Fighter1);
+        }
+        else {
+            fighter1Damage = Fighter1.getGeneralDamage();
+            fighter2Damage = Fighter2.getGeneralDamage();
+        }
         console.log(`\nCombate de ${Fighter1.getName()} contra ${Fighter2.getName()} !!!!!!`);
         console.log(`\n${Fighter1.getName()} tiene ${fighter1RemainingHealth} HP`);
         console.log(`\n${Fighter2.getName()} tiene ${fighter2RemainingHealth} HP`);
@@ -84,14 +87,18 @@ class Combat {
     }
 }
 exports.Combat = Combat;
-const Jotaro = new Jojo_1.Jojo('Jotaro', 1.95, 81, 'Corto Alcance', 200, 50, 200, 100, 'Star Platinum', 'The World', 'C', 'A', 'A', 'A', 'A');
-const Pikachu = new Pokemon_1.Pokemon('Pikachu', 0.4, 6, 'eléctrico', 55, 40, 90, 35);
-const Totodile = new Pokemon_1.Pokemon('Totodile', 0.6, 9.5, 'agua', 65, 64, 43, 50);
-/* console.log(Jotaro.printJojoData());
+/* const Jotaro = new Jojo('Jotaro', 1.95, 81, 'Corto Alcance', 200, 50, 200, 100, 'Star Platinum', 'The World', 'C', 'A', 'A', 'A', 'A');
+const Kira = new Jojo('Yoshikare Kira', 1.75, 65, 'Automático', 270, 40, 300, 100, 'Sheer Heart Attack', 'Heat-Seeking Detonation', 'C', 'A', 'A', 'A', 'A');
+const Pikachu = new Pokemon('Pikachu', 0.4, 6, 'eléctrico', 55, 40, 90, 35, 'Ash');
+const Totodile = new Pokemon('Totodile', 0.6, 9.5, 'agua', 65, 64, 43, 50, 'Ash');
+
+console.log(Jotaro.printJojoData());
 console.log(Pikachu.printPokemonData());
 
 const Fighters = new SaveFighter();
 
-console.log(Fighters.saveFighter(Jotaro, Pikachu, Totodile));*/
+console.log(Fighters.saveFighter(Jotaro, Pikachu, Totodile));
+
 const Battle = new Combat(Jotaro, Pikachu);
-console.log(Battle.startFight(Jotaro, Pikachu));
+
+console.log(Battle.startFight(Jotaro, Pikachu)); */

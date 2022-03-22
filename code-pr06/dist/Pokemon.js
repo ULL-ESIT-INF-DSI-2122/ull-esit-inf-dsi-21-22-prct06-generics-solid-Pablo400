@@ -20,7 +20,7 @@ class Pokemon extends Fighter_1.Fighter {
      * @param velocity Pokemon Velocity
      * @param health Pokemon Health
      */
-    constructor(name, height, weight, type, attack, defense, velocity, health) {
+    constructor(name, height, weight, type, attack, defense, velocity, health, pokemonTrainer) {
         super(name, height, weight, type, attack, defense, velocity, health);
         this.name = name;
         this.height = height;
@@ -30,6 +30,7 @@ class Pokemon extends Fighter_1.Fighter {
         this.defense = defense;
         this.velocity = velocity;
         this.health = health;
+        this.pokemonTrainer = pokemonTrainer;
     }
     getName() {
         return this.name;
@@ -98,6 +99,9 @@ class Pokemon extends Fighter_1.Fighter {
         const damage = ((this.attack / this.defense) * pokemonEffectiveness);
         return damage;
     }
+    getPokemonTrainer() {
+        return this.pokemonTrainer;
+    }
     getGeneralDamage() {
         const damage = (this.attack / this.defense);
         return damage;
@@ -107,7 +111,7 @@ class Pokemon extends Fighter_1.Fighter {
      * @return Printed Pokemon Information
      */
     printPokemonData() {
-        return `${this.getName()} es un pokemon de tipo ${this.getType()}, pesa ${this.getWeight()} kg y mide ${this.getHeight()} m.Tiene ${this.getAttack()} puntos de ataque, ${this.getDefense()} puntos de defensa, ${this.getVelocity()} puntos de velocidad y ${this.getHealth()} puntos de vida`;
+        return `El ${this.getName()} de ${this.pokemonTrainer} es un pokemon de tipo ${this.getType()}, pesa ${this.getWeight()} kg y mide ${this.getHeight()} m.Tiene ${this.getAttack()} puntos de ataque, ${this.getDefense()} puntos de defensa, ${this.getVelocity()} puntos de velocidad y ${this.getHealth()} puntos de vida`;
     }
 }
 exports.Pokemon = Pokemon;

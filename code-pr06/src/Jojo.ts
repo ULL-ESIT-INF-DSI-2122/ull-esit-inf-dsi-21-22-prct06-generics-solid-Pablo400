@@ -66,6 +66,11 @@ export class Jojo extends Fighter {
     return this.health;
   }
 
+  /**
+   * This method calculates the stand damage of a jojo character with his type, this function only works on the Jojo Universe
+   * @param Fighter Jojo Fighter
+   * @returns The damage of a Jojo Fighter
+   */
   getDamage(Fighter: Jojo): number {
     const superEffective : number = 2;
     const neutral : number = 1;
@@ -88,6 +93,10 @@ export class Jojo extends Fighter {
       standEffectiveness = neutral;
     } else if ( this.type == 'Control Total' && Fighter.type == 'Automático' ) {
       standEffectiveness = notVeryEffective;
+    } else if ( this.type == 'Corto Alcance' && Fighter.type == 'Automático' ) {
+      standEffectiveness = superEffective;
+    } else if ( this.type == 'Automático' && Fighter.type == 'Corto Alcance' ) {
+      standEffectiveness = neutral;
     }
 
     const damage : number = ((this.attack / this.defense) * standEffectiveness);
@@ -95,6 +104,10 @@ export class Jojo extends Fighter {
     return damage;
   }
 
+  /**
+   * This method calculates the stand damage of a jojo character on other Universe
+   * @returns The general damage of a Stand User on other Universe
+   */
   getGeneralDamage(): number {
     const damage = (this.attack / this.defense);
     return damage;

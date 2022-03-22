@@ -98,6 +98,12 @@ class Jojo extends Fighter_1.Fighter {
         else if (this.type == 'Control Total' && Fighter.type == 'Automático') {
             standEffectiveness = notVeryEffective;
         }
+        else if (this.type == 'Corto Alcance' && Fighter.type == 'Automático') {
+            standEffectiveness = superEffective;
+        }
+        else if (this.type == 'Automático' && Fighter.type == 'Corto Alcance') {
+            standEffectiveness = neutral;
+        }
         const damage = ((this.attack / this.defense) * standEffectiveness);
         return damage;
     }
