@@ -34,6 +34,10 @@ const DocumentaryByName = myDocumentaryCollection.searchAudiovisualProductByName
 const SeriesByRating = mySeriesCollection.searchAudiovisualProductByRating('PG-13');
 const MoviesByRating = myMoviesCollection.searchAudiovisualProductByRating('PG-13');
 
+const DocumentaryByBroadcastingMedia = myDocumentaryCollection.searchAudiovisualProductByBroadcastingMedia('RTVE');
+
+const newFilm = new Movie('Red', 'Animación', 2022, 100, 'PG-TP');
+
 describe('Series ', () => {
   it('mySeriesCollection.searchAudiovisualProductByYear(2019) return SeriesByYear', () => {
     expect(mySeriesCollection.searchAudiovisualProductByYear(2019)).to.be.eql(SeriesByYear);
@@ -44,6 +48,9 @@ describe('Series ', () => {
   it('mySeriesCollection.searchAudiovisualProductByRating(PG-13) return SeriesByRating', () => {
     expect(mySeriesCollection.searchAudiovisualProductByRating('PG-13')).to.be.eql(SeriesByRating);
   });
+  it('mySeriesCollection.getNumberOfAudiovisualProducts() return 2', () => {
+    expect(mySeriesCollection.getNumberOfAudiovisualProducts()).to.be.equal(2);
+  });
 });
 
 describe('Movies ', () => {
@@ -53,8 +60,11 @@ describe('Movies ', () => {
   it('myMoviesCollection.searchAudiovisualProductByName(The Batman) return SeriesByYear', () => {
     expect(myMoviesCollection.searchAudiovisualProductByName('The Batman')).to.be.eql(MoviesByName);
   });
-  it('myMoviesCollection.searchAudiovisualProductByRating(PG-13) returnMoviesByRating', () => {
-    expect(mySeriesCollection.searchAudiovisualProductByRating('PG-13')).to.be.eql(MoviesByRating);
+  it('myMoviesCollection.searchAudiovisualProductByRating(PG-13) return MoviesByRating', () => {
+    expect(myMoviesCollection.searchAudiovisualProductByRating('PG-13')).to.be.eql(MoviesByRating);
+  });
+  it('myMoviesCollection.addAudiovisualProduct(newFilm) return myMoviesCollection.getAudiovisualProducts()', () => {
+    expect(myMoviesCollection.addAudiovisualProduct(newFilm)).to.be.eql(myMoviesCollection.getAudiovisualProducts());
   });
 });
 
@@ -64,5 +74,14 @@ describe('Documentary ', () => {
   });
   it('myDocumentaryCollection.searchAudiovisualProductByName(El Hombre y la Tierra) return SeriesByYear', () => {
     expect(myDocumentaryCollection.searchAudiovisualProductByName('El Hombre y la Tierra')).to.be.eql(DocumentaryByName);
+  });
+  it('myDocumentaryCollection.searchAudiovisualProductByBroadcastingMedia(RTVE) return DocumentaryByBroadcastingMedia', () => {
+    expect(myDocumentaryCollection.searchAudiovisualProductByBroadcastingMedia('RTVE')).to.be.eql(DocumentaryByBroadcastingMedia);
+  });
+  it('myDocumentaryCollection.removeAudiovisualProduct(0) return myDocumentaryCollection.getAudiovisualProducts()', () => {
+    expect(myDocumentaryCollection.removeAudiovisualProduct(0)).to.be.eql(myDocumentaryCollection.getAudiovisualProducts());
+  });
+  it('myDocumentaryCollection.removeAudiovisualProduct(5) return undefined)', () => {
+    expect(myDocumentaryCollection.removeAudiovisualProduct(5)).to.be.eql(undefined);
   });
 });

@@ -7,7 +7,7 @@ import {StringSearcheableCollection} from '../src/ejercicio-PE101';
 const numericCollection = new NumericSearcheableCollection([1, 2, 1, 3, 4]);
 const stringCollection = new StringSearcheableCollection(['hola', 'hola', 'adios']);
 
-describe('ejercicio 1 ', () => {
+describe('ejercicio PE-101 ', () => {
   it('numericCollection.search(1) return [1, 1]', () => {
     expect(numericCollection.search(1)).to.be.eql([1, 1]);
   });

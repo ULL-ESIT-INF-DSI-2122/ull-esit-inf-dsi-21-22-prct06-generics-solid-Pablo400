@@ -6,8 +6,12 @@
     "./src/Pokemon.ts",
     "./src/SaveFighter.ts",
     "./src/ejercicio-2.ts",
+    "./src/BasicStreameableCollection.ts",
+    "./src/Documentary.ts",
+    "./src/Movies.ts",
+    "./src/Series.ts",
     "./src/ejercicio-3.ts",
-    "./src/ejercicio-PE101"
+    "./src/ejercicio-PE101.ts"
   ],
   "out": "./docs"
   }
