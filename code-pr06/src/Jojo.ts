@@ -73,11 +73,11 @@ export class Jojo extends Fighter {
   }
 
   /**
-   * This method calculates the stand damage of a jojo character on other Universe
+   * This method calculates the stand damage of a jojo character on other Universe, the Jojo characters are more powerful in other universe
    * @returns The general damage of a Stand User on other Universe
    */
   getGeneralDamage(): number {
-    const damage = (this.attack / this.defense);
+    const damage = (this.attack / this.defense) * 2;
     return damage;
   }
 

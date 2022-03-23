@@ -12,13 +12,13 @@ class Jojo extends Fighter_1.Fighter {
     /**
      * Recieves the Jojo character data
      * @param name Jojo character name
-     * @param height Jojo character name
-     * @param weight Jojo character name
-     * @param type Jojo character name
-     * @param attack Jojo character name
-     * @param defense Jojo character name
-     * @param velocity Jojo character name
-     * @param health Jojo character name
+     * @param height Jojo character height
+     * @param weight Jojo character weight
+     * @param type Jojo character type
+     * @param attack Jojo character attack
+     * @param defense Jojo character defense
+     * @param velocity Jojo character velocity
+     * @param health Jojo character health
      * @param standName Name of the Stand
      * @param specialPower Special Power of the Stand
      * @param range Range of the Stand
@@ -27,8 +27,8 @@ class Jojo extends Fighter_1.Fighter {
      * @param precision Stand Precision of the Stand
      * @param developmentPotencial Development Potencial of the Stand
      */
-    constructor(name, height, weight, type, attack, defense, velocity, health, standName, specialPower, range, destructivePower, stamina, precision, developmentPotencial) {
-        super(name, height, weight, type, attack, defense, velocity, health);
+    constructor(name, height, weight, type, attack, defense, velocity, health, catchPhrase, standName, specialPower, range, destructivePower, stamina, precision, developmentPotencial) {
+        super(name, height, weight, type, attack, defense, velocity, health, catchPhrase);
         this.name = name;
         this.height = height;
         this.weight = weight;
@@ -37,6 +37,7 @@ class Jojo extends Fighter_1.Fighter {
         this.defense = defense;
         this.velocity = velocity;
         this.health = health;
+        this.catchPhrase = catchPhrase;
         this.standName = standName;
         this.specialPower = specialPower;
         this.range = range;
@@ -44,30 +45,6 @@ class Jojo extends Fighter_1.Fighter {
         this.stamina = stamina;
         this.precision = precision;
         this.developmentPotencial = developmentPotencial;
-    }
-    getName() {
-        return this.name;
-    }
-    getHeight() {
-        return this.height;
-    }
-    getWeight() {
-        return this.weight;
-    }
-    getType() {
-        return this.type;
-    }
-    getAttack() {
-        return this.attack;
-    }
-    getDefense() {
-        return this.defense;
-    }
-    getVelocity() {
-        return this.velocity;
-    }
-    getHealth() {
-        return this.health;
     }
     /**
      * This method calculates the stand damage of a jojo character with his type, this function only works on the Jojo Universe
@@ -113,11 +90,11 @@ class Jojo extends Fighter_1.Fighter {
         return damage;
     }
     /**
-     * This method calculates the stand damage of a jojo character on other Universe
+     * This method calculates the stand damage of a jojo character on other Universe, the Jojo characters are more powerful in other universe
      * @returns The general damage of a Stand User on other Universe
      */
     getGeneralDamage() {
-        const damage = (this.attack / this.defense);
+        const damage = (this.attack / this.defense) * 2;
         return damage;
     }
     getStandName() {

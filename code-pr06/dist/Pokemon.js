@@ -19,9 +19,10 @@ class Pokemon extends Fighter_1.Fighter {
      * @param defense Pokemon Defense
      * @param velocity Pokemon Velocity
      * @param health Pokemon Health
+     * @param pokemonTrainer Pokemon Trainer Names
      */
-    constructor(name, height, weight, type, attack, defense, velocity, health, pokemonTrainer) {
-        super(name, height, weight, type, attack, defense, velocity, health);
+    constructor(name, height, weight, type, attack, defense, velocity, health, catchPhrase, pokemonTrainer) {
+        super(name, height, weight, type, attack, defense, velocity, health, catchPhrase);
         this.name = name;
         this.height = height;
         this.weight = weight;
@@ -30,31 +31,11 @@ class Pokemon extends Fighter_1.Fighter {
         this.defense = defense;
         this.velocity = velocity;
         this.health = health;
+        this.catchPhrase = catchPhrase;
         this.pokemonTrainer = pokemonTrainer;
     }
-    getName() {
-        return this.name;
-    }
-    getHeight() {
-        return this.height;
-    }
-    getWeight() {
-        return this.weight;
-    }
-    getType() {
-        return this.type;
-    }
-    getAttack() {
-        return this.attack;
-    }
-    getDefense() {
-        return this.defense;
-    }
-    getVelocity() {
-        return this.velocity;
-    }
-    getHealth() {
-        return this.health;
+    getPokemonTrainer() {
+        return this.pokemonTrainer;
     }
     /**
      * This method calculates the pokemon damage with his type, this function only works on the Pokemon Universe
@@ -98,9 +79,6 @@ class Pokemon extends Fighter_1.Fighter {
         }
         const damage = ((this.attack / this.defense) * pokemonEffectiveness);
         return damage;
-    }
-    getPokemonTrainer() {
-        return this.pokemonTrainer;
     }
     /**
      * This method calculates the pokemon damage on other Universe
