@@ -69,6 +69,11 @@ class Jojo extends Fighter_1.Fighter {
     getHealth() {
         return this.health;
     }
+    /**
+     * This method calculates the stand damage of a jojo character with his type, this function only works on the Jojo Universe
+     * @param Fighter Jojo Fighter
+     * @returns The damage of a Jojo Fighter
+     */
     getDamage(Fighter) {
         const superEffective = 2;
         const neutral = 1;
@@ -107,6 +112,10 @@ class Jojo extends Fighter_1.Fighter {
         const damage = ((this.attack / this.defense) * standEffectiveness);
         return damage;
     }
+    /**
+     * This method calculates the stand damage of a jojo character on other Universe
+     * @returns The general damage of a Stand User on other Universe
+     */
     getGeneralDamage() {
         const damage = (this.attack / this.defense);
         return damage;

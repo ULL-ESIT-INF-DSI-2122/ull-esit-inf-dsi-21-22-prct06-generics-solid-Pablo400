@@ -6,7 +6,8 @@
     "./src/Pokemon.ts",
     "./src/SaveFighter.ts",
     "./src/ejercicio-2.ts",
-    "./src/ejercicio-3.ts"
+    "./src/ejercicio-3.ts",
+    "./src/ejercicio-PE101"
   ],
   "out": "./docs"
   }

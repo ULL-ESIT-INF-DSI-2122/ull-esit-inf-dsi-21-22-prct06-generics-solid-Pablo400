@@ -1,17 +1,17 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Combat = void 0;
+/**
+ * Class that makes the combat between two fighters
+ */
 class Combat {
-    constructor(firstFighter, secondFighter) {
-        this.firstFighter = firstFighter;
-        this.secondFighter = secondFighter;
-    }
-    getFirstFighter() {
-        return this.firstFighter;
-    }
-    getSecondFighter() {
-        return this.secondFighter;
-    }
+    constructor() { }
+    /**
+     * This function simulates a combat between two characters of diferent Universes
+     * @param Fighter1 First Fighter
+     * @param Fighter2 Second Fighter
+     * @returns The winner of the combat
+     */
     startFight(Fighter1, Fighter2) {
         let combatTurns = 0;
         let fighter1RemainingHealth = Fighter1.getHealth();

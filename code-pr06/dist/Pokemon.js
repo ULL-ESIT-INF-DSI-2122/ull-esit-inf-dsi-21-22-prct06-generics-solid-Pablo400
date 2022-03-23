@@ -102,6 +102,10 @@ class Pokemon extends Fighter_1.Fighter {
     getPokemonTrainer() {
         return this.pokemonTrainer;
     }
+    /**
+     * This method calculates the pokemon damage on other Universe
+     * @returns The general damage of a Pokemon on other Universe
+     */
     getGeneralDamage() {
         const damage = (this.attack / this.defense);
         return damage;
