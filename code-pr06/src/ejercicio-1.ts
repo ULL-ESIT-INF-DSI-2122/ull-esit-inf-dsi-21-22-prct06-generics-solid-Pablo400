@@ -3,9 +3,6 @@
 /* eslint-disable require-jsdoc */
 /* eslint-disable no-unused-vars */
 import {Fighter} from './Fighter';
-import {Jojo} from './Jojo';
-import {Pokemon} from './Pokemon';
-import {SaveFighter} from './SaveFighter';
 
 /**
  * Class that makes the combat between two fighters
@@ -48,7 +45,7 @@ export class Combat {
     while (fighter1RemainingHealth >= 0 && fighter2RemainingHealth >= 0) {
       if (Fighter1.getVelocity() > Fighter2.getVelocity()) {
         fighter2RemainingHealth = fighter2RemainingHealth - fighter1Damage;
-        console.log(`\nAtaca ${Fighter1.getName()}`);
+        console.log(`\nAtaca ${Fighter1.getName()}, ${Fighter1.getCatchPhrase()}`);
         if ( fighter2RemainingHealth <= 0 ) {
           console.log(`${Fighter2.getName()} tiene 0 HP`);
         } else {
@@ -63,14 +60,14 @@ export class Combat {
         }
       } else if (Fighter1.getVelocity() < Fighter2.getVelocity()) {
         fighter1RemainingHealth = fighter1RemainingHealth - fighter2Damage;
-        console.log(`\nAtaca ${Fighter2.getName()}`);
+        console.log(`\nAtaca ${Fighter2.getName()}, ${Fighter2.getCatchPhrase()}`);
         if ( fighter2RemainingHealth <= 0 ) {
           console.log(`${Fighter2.getName()} tiene 0 HP`);
         } else {
           console.log(`${Fighter2.getName()} tiene ${fighter2RemainingHealth} HP`);
         }
         fighter2RemainingHealth = fighter2RemainingHealth - fighter1Damage;
-        console.log(`\nAtaca ${Fighter1.getName()}`);
+        console.log(`\nAtaca ${Fighter1.getName()}, ${Fighter1.getCatchPhrase()}`);
         if ( fighter1RemainingHealth <= 0 ) {
           console.log(`${Fighter1.getName()} tiene 0 HP`);
         } else {

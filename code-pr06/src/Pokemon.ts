@@ -17,43 +17,17 @@ export class Pokemon extends Fighter {
    * @param defense Pokemon Defense
    * @param velocity Pokemon Velocity
    * @param health Pokemon Health
+   * @param pokemonTrainer Pokemon Trainer Names
    */
   constructor(protected name : string, protected height : number,
     protected weight : number, protected type : string, protected attack : number,
-    protected defense : number, protected velocity : number, protected health : number, protected pokemonTrainer : string) {
-    super(name, height, weight, type, attack, defense, velocity, health);
+    protected defense : number, protected velocity : number, protected health : number,
+    protected catchPhrase : string, protected pokemonTrainer : string) {
+    super(name, height, weight, type, attack, defense, velocity, health, catchPhrase);
   }
 
-  getName() {
-    return this.name;
-  }
-
-  getHeight() {
-    return this.height;
-  }
-
-  getWeight() {
-    return this.weight;
-  }
-
-  getType() {
-    return this.type;
-  }
-
-  getAttack() {
-    return this.attack;
-  }
-
-  getDefense() {
-    return this.defense;
-  }
-
-  getVelocity() {
-    return this.velocity;
-  }
-
-  getHealth() {
-    return this.health;
+  getPokemonTrainer() {
+    return this.pokemonTrainer;
   }
 
   /**
@@ -92,10 +66,6 @@ export class Pokemon extends Fighter {
     const damage : number = ((this.attack / this.defense) * pokemonEffectiveness);
 
     return damage;
-  }
-
-  getPokemonTrainer() {
-    return this.pokemonTrainer;
   }
 
   /**

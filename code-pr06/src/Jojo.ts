@@ -10,13 +10,13 @@ export class Jojo extends Fighter {
   /**
    * Recieves the Jojo character data
    * @param name Jojo character name
-   * @param height Jojo character name
-   * @param weight Jojo character name
-   * @param type Jojo character name
-   * @param attack Jojo character name
-   * @param defense Jojo character name
-   * @param velocity Jojo character name
-   * @param health Jojo character name
+   * @param height Jojo character height
+   * @param weight Jojo character weight
+   * @param type Jojo character type
+   * @param attack Jojo character attack
+   * @param defense Jojo character defense
+   * @param velocity Jojo character velocity
+   * @param health Jojo character health
    * @param standName Name of the Stand
    * @param specialPower Special Power of the Stand
    * @param range Range of the Stand
@@ -28,42 +28,10 @@ export class Jojo extends Fighter {
   constructor(protected name : string, protected height : number,
     protected weight : number, protected type : string, protected attack : number,
     protected defense : number, protected velocity : number, protected health : number,
-    protected standName : string, protected specialPower : string, protected range : string,
+    protected catchPhrase : string, protected standName : string, protected specialPower : string, protected range : string,
     protected destructivePower : string, protected stamina : string, protected precision : string,
     protected developmentPotencial : string) {
-    super(name, height, weight, type, attack, defense, velocity, health);
-  }
-
-  getName() {
-    return this.name;
-  }
-
-  getHeight() {
-    return this.height;
-  }
-
-  getWeight() {
-    return this.weight;
-  }
-
-  getType() {
-    return this.type;
-  }
-
-  getAttack() {
-    return this.attack;
-  }
-
-  getDefense() {
-    return this.defense;
-  }
-
-  getVelocity() {
-    return this.velocity;
-  }
-
-  getHealth() {
-    return this.health;
+    super(name, height, weight, type, attack, defense, velocity, health, catchPhrase);
   }
 
   /**

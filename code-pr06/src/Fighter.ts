@@ -1,26 +1,62 @@
+/* eslint-disable valid-jsdoc */
 /* eslint-disable require-jsdoc */
 /* eslint-disable max-len */
 
+/**
+ * Abstract Fighter Class
+ */
 export abstract class Fighter {
+  /**
+   * Constructor Fighter Class
+   * @param name Character name
+   * @param height Character height
+   * @param weight Character weight
+   * @param type Character type
+   * @param attack Character attack
+   * @param defense Character defense
+   * @param velocity Character velocity
+   * @param health Character health
+   */
   constructor(protected name : string, protected height : number,
     protected weight : number, protected type : string, protected attack : number,
-    protected defense : number, protected velocity : number, protected health : number) { }
+    protected defense : number, protected velocity : number, protected health : number,
+    protected catchPhrase : string) { }
 
-  abstract getName() : string;
+  getName() {
+    return this.name;
+  }
 
-  abstract getHeight() : number;
+  getHeight() {
+    return this.height;
+  }
 
-  abstract getWeight() : number;
+  getWeight() {
+    return this.weight;
+  }
 
-  abstract getType() : string;
+  getType() {
+    return this.type;
+  }
 
-  abstract getAttack() : number;
+  getAttack() {
+    return this.attack;
+  }
 
-  abstract getDefense() : number;
+  getDefense() {
+    return this.defense;
+  }
 
-  abstract getVelocity() : number;
+  getVelocity() {
+    return this.velocity;
+  }
 
-  abstract getHealth() : number;
+  getHealth() {
+    return this.health;
+  }
+
+  getCatchPhrase() {
+    return this.catchPhrase;
+  }
 
   abstract getDamage(Fighter : any) : number;
 
