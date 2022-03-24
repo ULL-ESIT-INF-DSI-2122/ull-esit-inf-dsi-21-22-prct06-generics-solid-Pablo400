@@ -1,9 +1,21 @@
 "use strict";
+/* eslint-disable require-jsdoc */
+/* eslint-disable valid-jsdoc */
+/* eslint-disable max-len */
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Documentary = void 0;
-/* eslint-disable max-len */
-/* eslint-disable require-jsdoc */
+/**
+ * Documentary Class that creates a Documentary object
+ */
 class Documentary {
+    /**
+     * Documentary constructor
+     * @param name Documentary Name
+     * @param year Documentary Year of launch
+     * @param seasons Documentary Seasons
+     * @param episodes Documentary Episodes
+     * @param broadcastingMedia Documentary Broadcasting Media
+     */
     constructor(name, year, seasons, episodes, broadcastingMedia) {
         this.name = name;
         this.year = year;

@@ -1,8 +1,20 @@
 "use strict";
+/* eslint-disable valid-jsdoc */
+/* eslint-disable require-jsdoc */
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Movie = void 0;
-/* eslint-disable require-jsdoc */
+/**
+ * Movie Class that creates a Movie object
+ */
 class Movie {
+    /**
+     * Movie constructor
+     * @param name Movie Name
+     * @param genre Movie Genre
+     * @param year Movie Year
+     * @param duration Movie Duration
+     * @param rating Movie Rating
+     */
     constructor(name, genre, year, duration, rating) {
         this.name = name;
         this.genre = genre;
