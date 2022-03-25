@@ -1,15 +1,23 @@
 /* eslint-disable max-len */
 import 'mocha';
 import {expect} from 'chai';
-import {UnbreakableEncryption} from '../src/ejercicio-3';
+import {Cifrado} from '../src/ejercicio-3';
 
-const prueba = new UnbreakableEncryption('abcdefghijk', 'Hola', 'Clave');
+const prueba = new Cifrado('abcdefghijklmnopqrstuvwxyz', 'adios', 'clave');
+const prueba2 = new Cifrado('abcdefghijklmnopqrstuvwxyz', 'hastaluego', 'clave');
+const prueba3 = new Cifrado('abcdefghijklmnopqrstuvwxyz', 'coijw', 'clave');
 
 describe('Ejercicio 3', () => {
-  it('prueba.getAlphabet() return abcdefghijk', () => {
-    expect(prueba.getAlphabet()).to.be.eql('abcdefghijk');
+  it('prueba.getAlphabet() return abcdefghijklmnopqrstuvwxyz', () => {
+    expect(prueba.getAlphabet()).to.be.eql('abcdefghijklmnopqrstuvwxyz');
   });
-  it('prueba.resizekey(prueba.getMessage(), prueba.getkey()) return ClaveClaveCl', () => {
-    expect(prueba.resizekey(prueba.getMessage(), prueba.getKey())).to.be.eql('ClaveClaveCl');
+  it('prueba.umbreakableCypherandDecypher(true) return coijw', () => {
+    expect(prueba.umbreakableCypherandDecypher(true)).to.be.equal('coijw');
+  });
+  it('prueba2.umbreakableCypherandDecypher(true) return jlsoenfebs', () => {
+    expect(prueba2.umbreakableCypherandDecypher(true)).to.be.equal('jlsoenfebs');
+  });
+  it('prueba3.umbreakableCypherandDecypher(false) return adios', () => {
+    expect(prueba3.umbreakableCypherandDecypher(false)).to.be.equal('adios');
   });
 });
