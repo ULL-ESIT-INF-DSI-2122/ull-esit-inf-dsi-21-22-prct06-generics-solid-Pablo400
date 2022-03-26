@@ -23,10 +23,7 @@ export class Combat {
     let fighter1Damage = 0;
     let fighter2Damage = 0;
 
-    if ('standName' in Fighter1 && 'standName' in Fighter2) {
-      fighter1Damage = Fighter1.getDamage(Fighter2);
-      fighter2Damage = Fighter2.getDamage(Fighter1);
-    } else if ('pokemonTrainer' in Fighter1 && 'pokemonTrainer' in Fighter2) {
+    if ('standName' in Fighter1 && 'standName' in Fighter2 || 'pokemonTrainer' in Fighter1 && 'pokemonTrainer' in Fighter2) {
       fighter1Damage = Fighter1.getDamage(Fighter2);
       fighter2Damage = Fighter2.getDamage(Fighter1);
     } else {

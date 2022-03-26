@@ -71,7 +71,6 @@ export class Cifrado {
     let cypherFunction = 0;
     const cypherLetterPosition = [];
     let i = 0;
-    let j = 0;
     let messageLetterPosition = 0;
     let keyLetterPosition = 0;
     let resultText = '';
@@ -100,17 +99,9 @@ export class Cifrado {
       i++;
     }
 
-    i = 0;
-    while (i < newKey.length) {
-      j = 0;
-      while (j < this.getAlphabet().length) {
-        if (j === cypherLetterPosition[i]) {
-          resultText += this.getAlphabet()[j];
-        }
-        j++;
-      }
-      i++;
-    }
+    cypherLetterPosition.forEach( (position) => {
+      resultText += this.getAlphabet()[position];
+    });
 
     return resultText;
   }
