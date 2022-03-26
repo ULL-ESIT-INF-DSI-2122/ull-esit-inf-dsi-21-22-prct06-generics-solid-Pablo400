@@ -39,11 +39,52 @@ Partiendo del desarrollo realizado para el Ejercicio 1 de la Práctica 5, supong
 Imagine que tiene que diseñar el modelo de datos de una plataforma de vídeo en streaming. A través del catálogo de dicha plataforma se puede acceder a películas, series y documentales:
 
   - Defina una interfaz genérica ``Streamable`` que trate de especificar propiedades y métodos con los que debería contar una colección de emisiones concreta como, por ejemplo, una colección de series. Por ejemplo, deberían definirse métodos de búsqueda en dicha interfaz, que permitan obtener listados en función de diferentes términos de búsqueda: por año o por nombre, entre otros.
+
   - Defina una clase abstracta genérica ``BasicStreamableCollection`` que implemente dicha interfaz genérica. En este punto, podrá particularizar algunas de las propiedades y métodos de la interfaz ```Streamable``, aunque otros tendrán que permanecer como abstractos para ser definidos más abajo en la jerarquía de clases. Todo dependerá del diseño que haya llevado a cabo.
+
   - Tendrá que extender dicha clase abstracta para obtener subclases que modelen cada uno de los tres tipos de colecciones: series, películas y documentales.
+
   - Trate de aplicar los principios **SOLID**. Preste especial atención al diseño de la interfaz ``Streamable``. Si cree que debe dividirla en interfaces genéricas más pequeñas porque su diseño inicial es muy complejo, hágalo, con el objetivo de cumplir con el cuarto principio **SOLID Interface segregation**.
 
 #### Explicación
+
+En la implementación seguí los pasos que se indican en el enunciado para crear las clases e interfaces. Cree la interfaz ``Streameable``, la clase abstracta ``BasicStreamableCollection`` que implementa la interfaz ``Streameable`` y las clases derivadas de ``BasicStreamableCollection``.
+
+A parte de lo anterior también hice lo siguiente:
+
+  - Cree otra interfaz llamada ``StreameableSearch`` donde se definen los métodos de búsqueda que se encuentran en todas las clases derivadas según algún criterio, por ejemplo por el año de salida o por el nombre.
+
+    - Como se puede observar decidi crear otra interfaz para seguir el principio **SOLID de Interface Segregation**, ya que me parecio una buena idea dividir la interfaz en dos. Por un lado tengo una interfaz que define una serie de operaciones básicas y por otro lado tengo una interfaz que define algunas operaciones de búsqueda.
+
+    - Está interfaz la implementa la clase ``BasicStreamableCollection``.
+
+  - También cree tres clases donde se recojen los principales atributos de cada serie, película o documental:
+
+    - La clase ``Series``.
+
+      - Contiene los atributos de nombre, género, año, temporadas, episodios y calificación de edad de alguna serie.
+    
+    - La clase ``Movie``.
+
+      - Contiene los atributos de nombre, género, año, duración y calificación de edad de alguna película.
+
+    - La clase ``Documentary``.
+
+      - Contiene los atributos de nombre, año, temporadas, episodios y medio de transmisión de algún documental.
+
+  - A partir de la clase génerica ``BasicStreamableCollection<T>`` cree las siguientes clases derivadas :
+
+    - La clase ``SeriesCollection``, está clase extiende a la clase ``BasicStreamableCollection<Series>`` pero el tipo genérico se cambia por el tipo Series.
+
+      - En está clase se codifican los métodos de búsqueda y se añade una búsqueda adicional ``searchAudiovisualProductByRating`` que no estaba en la interfaz ``StreameableSearch``.
+
+    - La clase ``FilmsCollection``, está clase extiende a la clase ``BasicStreamableCollection<Movies>`` pero el tipo genérico se cambia por el tipo Movies.
+
+      - En está clase se codifican los métodos de búsqueda y se añade una búsqueda adicional ``searchAudiovisualProductByRating`` que no estaba en la interfaz ``StreameableSearch``.
+
+    - La clase ``DocumentaryCollection``, está clase extiende a la clase ``BasicStreamableCollection<Documentary>`` pero el tipo genérico se cambia por el tipo Documentary.
+
+      - En está clase se codifican los métodos de búsqueda y se añade una búsqueda adicional ``searchAudiovisualProductByBroadcastingMedia`` que no estaba en la interfaz ``StreameableSearch``.
 
 ### Ejercicio 3 - El cifrado indescifrable
 
