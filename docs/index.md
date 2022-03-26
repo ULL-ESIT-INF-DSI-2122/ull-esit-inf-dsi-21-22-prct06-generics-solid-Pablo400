@@ -32,6 +32,38 @@ Partiendo del desarrollo realizado para el Ejercicio 1 de la Práctica 5, supong
 
 #### Explicación
 
+En esta actividad primero cree la clase abastracta ``Fighter``, donde se recojen todos los atributos o métodos que deben de tener todas las clases.
+  
+  - Contiene los atributos de nombre, peso, altura, tipo, puntos de ataque, puntos de defensa, puntos de velocidad, puntos de vida y una frase representativa del personaje.
+
+  - Contiene los métodos abstractos de ``getDamage`` y ``getGeneralDamage``.
+
+Luego cree la clase ``Pokemon``, donde se extiende a la clase ``Fighter``. La clase ``Pokemon`` hereda los atributos de la clase ``Fighter`` y creo un nuevo atributo donde se guarda el nombre del entrenador Pokemon.
+
+En está clase se codifican los métodos de ``getDamage`` y ``getGeneralDamage``:
+
+  - En el método ``getDamage`` se obtiene el daño de un Pokemon según su tipo y el del Pokemon enemigo. 
+
+  - En el método ``getGeneralDamage`` se obtiene el daño de un Pokemon en caso de combatir en otro universo.
+
+Luego cree la clase ``Jojo``, donde se extiende a la clase ``Fighter``. En está clase se obtienen los atributos de la calse ``Fighter`` y se añaden otros atributos necesarios para un personaje del universo de Jojo.
+
+  - Se añaden los atributos del nombre del stand, su poder especial, rango, poder destructivo, stamina, precisión y la capacidad de evolución de cada stand.
+
+> Un Stand se puede definir como la manifestación física del alma de una persona, con ello un Stand también puede representar la manifestación del "espíritu de lucha" o la psique del individuo, hasta cierto punto.
+
+En está clase se codifican los métodos de ``getDamage`` y ``getGeneralDamage``:
+
+  - En el método ``getDamage`` se obtiene el daño de un stand según su tipo y el del stand enemigo. 
+
+  - En el método ``getGeneralDamage`` se obtiene el daño de un stand en caso de combatir en otros universos.
+
+En la clase ``SaveFighter`` se guarda cualquier luchador de forma similar a la clase ``Pokedex`` en la práctica anterior.
+
+Por último en la clase ``Combat`` se realiza una simulación del combate entre dos luchadores independiente del universo. Para saber si los dos luchadores son del mismo tipo utilizo un guardian de tipos donde compruebo si los dos luchadores tienen un atríbuto en especifico que solo pertence a su universo. En el caso de que los luchadores sean de distintos universos invoco al método ``getGeneralDamage``. 
+
+En está implementación se cumplen los principios **SOLID de Single Responsability y Open-Closed**. Por un lado creo la clase ``Fighter`` y a partir de esta clase se puede crear cualquier universo con sus atríbutos y métodos en específico. Por otro lado, se cumple el principio **Open-Closed**, ya que cualquier universo que se cree va a extender a la clase ``Fighter`` y está clase no se va a modificar en ningún momento cuando se añadan cambios a las clases derivadas.
+
 ### Ejercicio 2 - DSIflix
 
 #### Enunciado
