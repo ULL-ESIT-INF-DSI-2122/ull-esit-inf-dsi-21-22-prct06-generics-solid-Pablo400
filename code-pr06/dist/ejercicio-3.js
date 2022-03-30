@@ -69,7 +69,6 @@ class Cifrado {
         let cypherFunction = 0;
         const cypherLetterPosition = [];
         let i = 0;
-        let j = 0;
         let messageLetterPosition = 0;
         let keyLetterPosition = 0;
         let resultText = '';
@@ -96,44 +95,40 @@ class Cifrado {
             cypherLetterPosition.push(cypherFunction);
             i++;
         }
-        i = 0;
-        while (i < newKey.length) {
-            j = 0;
-            while (j < this.getAlphabet().length) {
-                if (j === cypherLetterPosition[i]) {
-                    resultText += this.getAlphabet()[j];
-                }
-                j++;
-            }
-            i++;
-        }
+        cypherLetterPosition.forEach((position) => {
+            resultText += this.getAlphabet()[position];
+        });
         return resultText;
     }
 }
 exports.Cifrado = Cifrado;
-const scanf = require('scanf');
+/* const scanf = require('scanf');
 let alphabet = '';
 let message = '';
 let key = '';
 let selection = 0;
 let selectOption = true;
+
 console.log('Introduzca un alfabeto');
 alphabet = scanf('%s');
+
 console.log('Introduzca un mensaje para cifrar o descifrar');
 message = scanf('%s');
+
 console.log('Introduzca una clave');
 key = scanf('%s');
+
 const prueba = new Cifrado(alphabet, message, key);
+
 console.log('¿Quiere cifrar o descifrar? (0-Cifrar, 1-Descifrar)');
 selection = scanf('%d');
+
 if (selection === 0) {
-    selectOption = true;
-    console.log(prueba.umbreakableCypherandDecypher(selectOption));
-}
-else if (selection === 1) {
-    selectOption = false;
-    console.log(prueba.umbreakableCypherandDecypher(selectOption));
-}
-else {
-    console.log('Opción no soportada');
-}
+  selectOption = true;
+  console.log(prueba.umbreakableCypherandDecypher(selectOption));
+} else if (selection === 1) {
+  selectOption = false;
+  console.log(prueba.umbreakableCypherandDecypher(selectOption));
+} else {
+  console.log('Opción no soportada');
+} */
