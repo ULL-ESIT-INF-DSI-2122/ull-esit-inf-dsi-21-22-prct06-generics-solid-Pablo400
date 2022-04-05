@@ -1,4 +1,6 @@
-# Práctica 6 - Clases e interfaces genéricas. Principios SOLID
+# Práctica 6 - Clases e interfaces genéricas. Principios 
+
+[![Tests](https://github.com/ULL-ESIT-INF-DSI-2122/ull-esit-inf-dsi-21-22-prct06-generics-solid-Pablo400/actions/workflows/node.js.yml/badge.svg?branch=main)](https://github.com/ULL-ESIT-INF-DSI-2122/ull-esit-inf-dsi-21-22-prct06-generics-solid-Pablo400/actions/workflows/node.js.yml)
 
 ## Introducción
 
