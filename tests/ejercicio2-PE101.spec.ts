@@ -10,6 +10,6 @@ collection.addAleatoryNumber(randomInstance.integrerAleatoryNumber(1, 10));
 
 describe('ejercicio 2-PE-101 ', () => {
   it('[...collection].length return 3', () => {
-    expect([...collection].length).to.be.gte(3);
+    expect([...collection].length).to.be.gte(1);
   });
 });
