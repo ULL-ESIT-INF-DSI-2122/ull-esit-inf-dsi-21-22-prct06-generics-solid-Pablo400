@@ -12,7 +12,7 @@ const newSubscription = new Subscriptor(magazineObserver, myMagazine.getObserver
 
 describe('Ejercicio Práctica 8 - Magazine', () => {
   it('myMagazine.onNewLaunch() return Se ha lanzado la revista Hola', () => {
-    expect(myMagazine.onNewLaunch()).to.be.equal('Se ha lanzado la revista Hola');
+    expect(myMagazine.onNewLaunch()).to.be.equal('Se ha lanzado la revista Hola, el número 100 y con la categoria de Actualidad');
   });
   it('myMagazine.getName() return Hola', () => {
     expect(myMagazine.getName()).to.be.equal('Hola');
