@@ -1,5 +1,182 @@
 <!DOCTYPE html><html class="default"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="IE=edge"/><title>code-pr06</title><meta name="description" content="Documentation for code-pr06"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="stylesheet" href="assets/style.css"/><link rel="stylesheet" href="assets/highlight.css"/><script async src="assets/search.js" id="search-script"></script></head><body><script>document.body.classList.add(localStorage.getItem("tsd-theme") || "os")</script><header><div class="tsd-page-toolbar"><div class="container"><div class="table-wrap"><div class="table-cell" id="tsd-search" data-base="."><div class="field"><label for="tsd-search-field" class="tsd-widget search no-caption">Search</label><input type="text" id="tsd-search-field"/></div><ul class="results"><li class="state loading">Preparing search index...</li><li class="state failure">The search index is not available</li></ul><a href="index.html" class="title">code-pr06</a></div><div class="table-cell" id="tsd-widgets"><div id="tsd-filter"><a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a><div class="tsd-filter-group"><div class="tsd-select" id="tsd-filter-visibility"><span class="tsd-select-label">All</span><ul class="tsd-select-list"><li data-value="public">Public</li><li data-value="protected">Public/Protected</li><li data-value="private" class="selected">All</li></ul></div> <input type="checkbox" id="tsd-filter-inherited" checked/><label class="tsd-widget" for="tsd-filter-inherited">Inherited</label><input type="checkbox" id="tsd-filter-externals" checked/><label class="tsd-widget" for="tsd-filter-externals">Externals</label></div></div><a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a></div></div></div></div><div class="tsd-page-title"><div class="container"><h1> code-pr06</h1></div></div></header><div class="container container-main"><div class="row"><div class="col-8 col-content"><div class="tsd-panel tsd-typography">
-<a href="#práctica-6---clases-e-interfaces-genéricas-principios-solid" id="práctica-6---clases-e-interfaces-genéricas-principios-solid" style="color: inherit; text-decoration: none;">
-  <h1>Práctica 6 - Clases e interfaces genéricas. Principios SOLID</h1>
+<a href="#práctica-6---clases-e-interfaces-genéricas-principios" id="práctica-6---clases-e-interfaces-genéricas-principios" style="color: inherit; text-decoration: none;">
+  <h1>Práctica 6 - Clases e interfaces genéricas. Principios</h1>
 </a>
+<p><a href="https://github.com/ULL-ESIT-INF-DSI-2122/ull-esit-inf-dsi-21-22-prct06-generics-solid-Pablo400/actions/workflows/node.js.yml"><img src="https://github.com/ULL-ESIT-INF-DSI-2122/ull-esit-inf-dsi-21-22-prct06-generics-solid-Pablo400/actions/workflows/node.js.yml/badge.svg?branch=main" alt="Tests"></a></p>
+<p><a href="https://coveralls.io/github/ULL-ESIT-INF-DSI-2122/ull-esit-inf-dsi-21-22-prct06-generics-solid-Pablo400?branch=main"><img src="https://coveralls.io/repos/github/ULL-ESIT-INF-DSI-2122/ull-esit-inf-dsi-21-22-prct06-generics-solid-Pablo400/badge.svg?branch=main" alt="Coverage Status"></a></p>
+
+<a href="#introducción" id="introducción" style="color: inherit; text-decoration: none;">
+  <h2>Introducción</h2>
+</a>
+<p>En esta práctica tendremos que resolver una serie de ejercicios de programación que nos permitirán conocer más en profundidad las clases e interfaces genéricas del lenguaje TypeScript. Además, también deberán utilizar los principios SOLID de diseño orientado a objetos.</p>
+
+<a href="#tareas-previas" id="tareas-previas" style="color: inherit; text-decoration: none;">
+  <h2>Tareas Previas</h2>
+</a>
+<ol>
+<li><p>Aceptar la asignación de GitHub Classroom asociada a esta práctica.</p>
+</li>
+<li><p>La obtención de un informe acerca del cubrimiento del código fuente será un requisito obligatorio. Para ello, se deben utilizar las herramientas de Instanbul y Coveralls.</p>
+</li>
+</ol>
+
+<a href="#ejercicios-explicados" id="ejercicios-explicados" style="color: inherit; text-decoration: none;">
+  <h2>Ejercicios explicados</h2>
+</a>
+
+<a href="#ejercicio-1---el-combate-definitivo" id="ejercicio-1---el-combate-definitivo" style="color: inherit; text-decoration: none;">
+  <h3>Ejercicio 1 - El combate definitivo</h3>
+</a>
+
+<a href="#enunciado" id="enunciado" style="color: inherit; text-decoration: none;">
+  <h4>Enunciado</h4>
+</a>
+<p>Partiendo del desarrollo realizado para el Ejercicio 1 de la Práctica 5, supongamos que ahora queremos incluir distintos tipos de contendientes a la pelea. Por ejemplo, podríamos incluir personajes del universo Marvel, DC Comics, Star Wars o Dragon Ball entre otros. Puede incluir otros universos y/o personajes que desee. Para extender el desarrollo anterior se pide:</p>
+<ul>
+<li><p>Desarrolle una clase abstracta llamada <code>Fighter</code> que permita hacer que un contendiente pueda luchar. Esta clase se considerará la superclase del resto de clases a implementar. Para cada universo, desarrolle la clase que lo represente (Pokemon, Marvel, DC, Star Wars, Dragon Ball, etc).</p>
+</li>
+<li><p>Cada contendiente debe ser descendiente de su clase universo. Además, para cada contendiente se debe poder acceder a la información requerida para la clase <code>Pokemon</code> de la práctica anterior (nombre, altura, peso, etc). Puede incluir información extra que considere oportuna según el universo.</p>
+</li>
+<li><p>La clase <code>Combat</code> ahora permitará que los combates se disputen entre contendientes de distintos universos. Todas las combinaciones deben ser posibles, incluso contendientes del mismo universo. Asimismo, la simulación de los combates debe ser similar a la realizada en la práctica anterior. Sin embargo, ahora con cada ataque los contendientes deberán mostrar alguna catching phrase representativa de su personaje.</p>
+</li>
+<li><p>Actualice los valores de efectividad de los movimientos de los nuevos contendientes de la forma que considere oportuna. Contendientes de un universo son más fuertes que los de otro, personajes concretos son más fuertes que otros sin importar el universo o una mezcla de ambas. Puede basarse en un criterio similar al empleado en las prácticas anteriores sobre los tipos de Pokemon.</p>
+</li>
+<li><p>La clase <code>Pokedex</code> deberá actualizarse para incluir también el resto de contendientes. Esto es, deberá ser capaz de almacenar personajes de todos los universos considerados dentro de una misma estructura de datos. Además, deberá ofrecer todas las funcionalidades previamente requeridas para los nuevos contendientes.</p>
+</li>
+<li><p>Por último, desarrolle este ejercicio empleando los principios <strong>SOLID Single Responsability</strong> y <strong>Open-Closed</strong>.</p>
+</li>
+</ul>
+
+<a href="#explicación" id="explicación" style="color: inherit; text-decoration: none;">
+  <h4>Explicación</h4>
+</a>
+<p>En esta actividad primero cree la clase abastracta <code>Fighter</code>, donde se recojen todos los atributos o métodos que deben de tener todas las clases.</p>
+<ul>
+<li><p>Contiene los atributos de nombre, peso, altura, tipo, puntos de ataque, puntos de defensa, puntos de velocidad, puntos de vida y una frase representativa del personaje.</p>
+</li>
+<li><p>Contiene los métodos abstractos de <code>getDamage</code> y <code>getGeneralDamage</code>.</p>
+</li>
+</ul>
+<p>Luego cree la clase <code>Pokemon</code>, donde se extiende a la clase <code>Fighter</code>. La clase <code>Pokemon</code> hereda los atributos de la clase <code>Fighter</code> y creo un nuevo atributo donde se guarda el nombre del entrenador Pokemon.</p>
+<p>En está clase se codifican los métodos de <code>getDamage</code> y <code>getGeneralDamage</code>:</p>
+<ul>
+<li><p>En el método <code>getDamage</code> se obtiene el daño de un Pokemon según su tipo y el del Pokemon enemigo. </p>
+</li>
+<li><p>En el método <code>getGeneralDamage</code> se obtiene el daño de un Pokemon en caso de combatir en otro universo.</p>
+</li>
+</ul>
+<p>Luego cree la clase <code>Jojo</code>, donde se extiende a la clase <code>Fighter</code>. En está clase se obtienen los atributos de la calse <code>Fighter</code> y se añaden otros atributos necesarios para un personaje del universo de Jojo.</p>
+<ul>
+<li>Se añaden los atributos del nombre del stand, su poder especial, rango, poder destructivo, stamina, precisión y la capacidad de evolución de cada stand.</li>
+</ul>
+<blockquote>
+<p>Un Stand se puede definir como la manifestación física del alma de una persona, con ello un Stand también puede representar la manifestación del &quot;espíritu de lucha&quot; o la psique del individuo, hasta cierto punto.
+En está clase se codifican los métodos de <code>getDamage</code> y <code>getGeneralDamage</code>:</p>
+</blockquote>
+<ul>
+<li><p>En el método <code>getDamage</code> se obtiene el daño de un stand según su tipo y el del stand enemigo. </p>
+</li>
+<li><p>En el método <code>getGeneralDamage</code> se obtiene el daño de un stand en caso de combatir en otros universos.</p>
+</li>
+</ul>
+<p>En la clase <code>SaveFighter</code> se guarda cualquier luchador de forma similar a la clase <code>Pokedex</code> en la práctica anterior.</p>
+<p>Por último en la clase <code>Combat</code> se realiza una simulación del combate entre dos luchadores independiente del universo. Para saber si los dos luchadores son del mismo tipo utilizo un guardian de tipos donde compruebo si los dos luchadores tienen un atríbuto en especifico que solo pertence a su universo. En el caso de que los luchadores sean de distintos universos invoco al método <code>getGeneralDamage</code>. </p>
+<p>En está implementación se cumplen los principios <strong>SOLID de Single Responsability y Open-Closed</strong>. Por un lado creo la clase <code>Fighter</code> y a partir de esta clase se puede crear cualquier universo con sus atríbutos y métodos en específico. Por otro lado, se cumple el principio <strong>Open-Closed</strong>, ya que cualquier universo que se cree va a extender a la clase <code>Fighter</code> y está clase no se va a modificar en ningún momento cuando se añadan cambios a las clases derivadas.</p>
+
+<a href="#ejercicio-2---dsiflix" id="ejercicio-2---dsiflix" style="color: inherit; text-decoration: none;">
+  <h3>Ejercicio 2 - DSIflix</h3>
+</a>
+
+<a href="#enunciado-1" id="enunciado-1" style="color: inherit; text-decoration: none;">
+  <h4>Enunciado</h4>
+</a>
+<p>Imagine que tiene que diseñar el modelo de datos de una plataforma de vídeo en streaming. A través del catálogo de dicha plataforma se puede acceder a películas, series y documentales:</p>
+<ul>
+<li><p>Defina una interfaz genérica <code>Streamable</code> que trate de especificar propiedades y métodos con los que debería contar una colección de emisiones concreta como, por ejemplo, una colección de series. Por ejemplo, deberían definirse métodos de búsqueda en dicha interfaz, que permitan obtener listados en función de diferentes términos de búsqueda: por año o por nombre, entre otros.</p>
+</li>
+<li><p>Defina una clase abstracta genérica <code>BasicStreamableCollection</code> que implemente dicha interfaz genérica. En este punto, podrá particularizar algunas de las propiedades y métodos de la interfaz ```Streamable``, aunque otros tendrán que permanecer como abstractos para ser definidos más abajo en la jerarquía de clases. Todo dependerá del diseño que haya llevado a cabo.</p>
+</li>
+<li><p>Tendrá que extender dicha clase abstracta para obtener subclases que modelen cada uno de los tres tipos de colecciones: series, películas y documentales.</p>
+</li>
+<li><p>Trate de aplicar los principios <strong>SOLID</strong>. Preste especial atención al diseño de la interfaz <code>Streamable</code>. Si cree que debe dividirla en interfaces genéricas más pequeñas porque su diseño inicial es muy complejo, hágalo, con el objetivo de cumplir con el cuarto principio <strong>SOLID Interface segregation</strong>.</p>
+
+<a href="#explicación-1" id="explicación-1" style="color: inherit; text-decoration: none;">
+  <h4>Explicación</h4>
+</a>
+<p>En la implementación seguí los pasos que se indican en el enunciado para crear las clases e interfaces. Cree la interfaz <code>Streameable</code>, la clase abstracta <code>BasicStreamableCollection</code> que implementa la interfaz <code>Streameable</code> y las clases derivadas de <code>BasicStreamableCollection</code>.
+A parte de lo anterior también hice lo siguiente:</p>
+</li>
+<li><p>Cree otra interfaz llamada <code>StreameableSearch</code> donde se definen los métodos de búsqueda que se encuentran en todas las clases derivadas según algún criterio, por ejemplo por el año de salida o por el nombre.</p>
+<ul>
+<li>Como se puede observar decidi crear otra interfaz para seguir el principio <strong>SOLID de Interface Segregation</strong>, ya que me parecio una buena idea dividir la interfaz en dos. Por un lado tengo una interfaz que define una serie de operaciones básicas y por otro lado tengo una interfaz que define algunas operaciones de búsqueda.</li>
+<li>Está interfaz la implementa la clase <code>BasicStreamableCollection</code>.</li>
+</ul>
+</li>
+<li><p>También cree tres clases donde se recojen los principales atributos de cada serie, película o documental:</p>
+<ul>
+<li><p>La clase <code>Series</code>.</p>
+<ul>
+<li>Contiene los atributos de nombre, género, año, temporadas, episodios y calificación de edad de alguna serie.</li>
+</ul>
+</li>
+<li><p>La clase <code>Movie</code>.</p>
+<ul>
+<li>Contiene los atributos de nombre, género, año, duración y calificación de edad de alguna película.</li>
+</ul>
+</li>
+<li><p>La clase <code>Documentary</code>.</p>
+<ul>
+<li>Contiene los atributos de nombre, año, temporadas, episodios y medio de transmisión de algún documental.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>A partir de la clase génerica <code>BasicStreamableCollection&lt;T&gt;</code> cree las siguientes clases derivadas :</p>
+<ul>
+<li>La clase <code>SeriesCollection</code>, está clase extiende a la clase <code>BasicStreamableCollection&lt;Series&gt;</code> pero el tipo genérico se cambia por el tipo Series.<ul>
+<li>En está clase se codifican los métodos de búsqueda y se añade una búsqueda adicional <code>searchAudiovisualProductByRating</code> que no estaba en la interfaz <code>StreameableSearch</code>.</li>
+</ul>
+</li>
+<li>La clase <code>FilmsCollection</code>, está clase extiende a la clase <code>BasicStreamableCollection&lt;Movies&gt;</code> pero el tipo genérico se cambia por el tipo Movies.<ul>
+<li>En está clase se codifican los métodos de búsqueda y se añade una búsqueda adicional <code>searchAudiovisualProductByRating</code> que no estaba en la interfaz <code>StreameableSearch</code>.</li>
+</ul>
+</li>
+<li>La clase <code>DocumentaryCollection</code>, está clase extiende a la clase <code>BasicStreamableCollection&lt;Documentary&gt;</code> pero el tipo genérico se cambia por el tipo Documentary.<ul>
+<li>En está clase se codifican los métodos de búsqueda y se añade una búsqueda adicional <code>searchAudiovisualProductByBroadcastingMedia</code> que no estaba en la interfaz <code>StreameableSearch</code>.
+<a href="#ejercicio-3---el-cifrado-indescifrable" id="ejercicio-3---el-cifrado-indescifrable" style="color: inherit; text-decoration: none;">
+  <h3>Ejercicio 3 - El cifrado indescifrable</h3>
+</a>
+
+<a href="#enunciado-2" id="enunciado-2" style="color: inherit; text-decoration: none;">
+  <h4>Enunciado</h4>
+</a>
+Cree una clase <code>Cifrado</code> que implemente las operaciones de codificación y decodificación ante un alfabeto y palabra clave arbitrarios, esto es, definidos por el usuario y que, además, pueden ser variables. Trate de aplicar los principios <strong>SOLID</strong> en su diseño.
+<a href="#explicación-2" id="explicación-2" style="color: inherit; text-decoration: none;">
+  <h4>Explicación</h4>
+</a>
+En mi implementación he usado una clase <code>Cifrado</code> tal como indica el enunciado, en está clase se realizan las operaciones de cifrado y descifrado ante un alfabeto, un mensaje y una clave arbitrarios. 
+En la clase <code>Cifrado</code> nos encontramos con los siguientes métodos:</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Los <code>getters</code> de los atributos <code>alphabet</code>, <code>message</code> y <code>key</code>.</p>
+</li>
+<li><p>El método <code>resizeKey</code>. </p>
+<ul>
+<li>Este método aumenta el tamaño de la clave en caso de que el tamaño del mensaje sea mayor.</li>
+</ul>
+</li>
+<li><p>El método <code>getLetterPosition</code>. </p>
+<ul>
+<li>Este método busca la posición de alguna letra, ya sea del mensaje o de la clave en el alfabeto que se haya proporcionado. Si no se encuentra ninguna letra se devuelve 0.</li>
+</ul>
+</li>
+<li><p>El método <code>umbreakableCypherandDecypher</code>.</p>
+<ul>
+<li>Este método puede cifrar o descifrar un mensaje. Primero se comprueba si el tamaño del mensaje es mayor que el tamaño de la clave y con ayuda <code>resizeKey</code> podemos aumentar el tamaño de la clave, en caso contrario se realiza la operación de cifrado o descifrado según se haya indicado en el argumento de está método. Para saber si se quiere realizar el cifrado o descifrado utilizo un booleano como parámetro, si tiene el valor <code>true</code> se realiza el cifrado y si tiene valor <code>false</code> se realiza el descifrado.</li>
+</ul>
+</li>
+</ul>
+<p>En está actividad he aplicado el principio <strong>SOLID</strong> de <strong>Single Resposibility Principle</strong>, ya que las operaciones de cifrado y descifrado en este código son muy parecido y mi clase utilizo las dos operaciones en el mismo método. Por lo tanto, en está clase se cumple con este principio.</p>
 </div></div><div class="col-4 col-menu menu-sticky-wrap menu-highlight"><nav class="tsd-navigation primary"><ul><li class="current"><a href="modules.html">Modules</a></li><li class=" tsd-kind-module"><a href="modules/BasicStreameableCollection.html">Basic<wbr/>Streameable<wbr/>Collection</a></li><li class=" tsd-kind-module"><a href="modules/Documentary.html">Documentary</a></li><li class=" tsd-kind-module"><a href="modules/Fighter.html">Fighter</a></li><li class=" tsd-kind-module"><a href="modules/Jojo.html">Jojo</a></li><li class=" tsd-kind-module"><a href="modules/Movies.html">Movies</a></li><li class=" tsd-kind-module"><a href="modules/Pokemon.html">Pokemon</a></li><li class=" tsd-kind-module"><a href="modules/SaveFighter.html">Save<wbr/>Fighter</a></li><li class=" tsd-kind-module"><a href="modules/Series.html">Series</a></li><li class=" tsd-kind-module"><a href="modules/ejercicio_1.html">ejercicio-<wbr/>1</a></li><li class=" tsd-kind-module"><a href="modules/ejercicio_2.html">ejercicio-<wbr/>2</a></li><li class=" tsd-kind-module"><a href="modules/ejercicio_3.html">ejercicio-<wbr/>3</a></li><li class=" tsd-kind-module"><a href="modules/ejercicio_PE101.html">ejercicio-<wbr/>PE101</a></li></ul></nav></div></div></div><footer class="with-border-bottom"><div class="container"><h2>Legend</h2><div class="tsd-legend-group"><ul class="tsd-legend"><li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li><li class="tsd-kind-class tsd-has-type-parameter"><span class="tsd-kind-icon">Class with type parameter</span></li></ul></div><h2>Settings</h2><p>Theme <select id="theme"><option value="os">OS</option><option value="light">Light</option><option value="dark">Dark</option></select></p></div></footer><div class="container tsd-generator"><p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p></div><div class="overlay"></div><script src="assets/main.js"></script></body></html>

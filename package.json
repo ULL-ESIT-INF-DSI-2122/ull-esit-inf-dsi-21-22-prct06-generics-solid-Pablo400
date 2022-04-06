@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "mocha",
-    "coverage": "nyc npm test && nyc report --reporter=text-lcov",
-    "start": "tsc-watch --onSuccess \"node dist/ejercicio-2-PE101.js\"",
+    "coverage": "nyc npm test && nyc report --reporter=lcov",
+    "start": "tsc-watch --onSuccess \"node dist/ejercicio-practica8.js\"",
     "doc": "typedoc"
   },
   "keywords": [],
