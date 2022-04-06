@@ -1,4 +1,5 @@
 "use strict";
+/* eslint-disable valid-jsdoc */
 /* eslint-disable no-unused-vars */
 /* eslint-disable max-len */
 /* eslint-disable require-jsdoc */
@@ -6,6 +7,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.MagazineObserver = void 0;
 const magazine_1 = require("./magazine");
 const magazine_2 = require("./magazine");
+/**
+ * Class observer of magazine class
+ */
 class MagazineObserver {
     constructor(name, magazineNumber, category) {
         this.name = name;
@@ -21,6 +25,10 @@ class MagazineObserver {
     getCategory() {
         return this.category;
     }
+    /**
+     * Updates the state of the magazine event
+     * @param observable Gets and observable object
+     */
     update(observable) {
         if (observable instanceof magazine_1.Magazine) {
             switch (observable.getEventType()) {
